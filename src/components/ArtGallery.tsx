@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { Palette } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import ArtLightbox from "./ArtLightbox";
@@ -55,9 +56,16 @@ export default function ArtGallery() {
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
         {filtered.map((piece, i) => (
           <Reveal key={piece.image} delay={Math.min(i * 0.04, 0.2)} className="mb-5 break-inside-avoid">
-            <button
-              type="button"
-              onClick={() => setOpenIndex(i)}
+            {/* A real crawlable link to /art/[slug] — clicking opens the
+                in-page lightbox (preventDefault), but the href is real so
+                search engines, right-click "open in new tab", and
+                middle-click all resolve to a genuine indexable page. */}
+            <Link
+              href={`/art/${piece.slug}`}
+              onClick={(e) => {
+                e.preventDefault();
+                setOpenIndex(i);
+              }}
               className="group block w-full text-left rounded-xl overflow-hidden border border-line hover:border-accent/40 transition-all duration-300"
             >
               <div className="overflow-hidden">
@@ -67,7 +75,7 @@ export default function ArtGallery() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={piece.image}
-                  alt={piece.title}
+                  alt={`${piece.title} — ${piece.medium} by Sahil Poojary`}
                   loading="lazy"
                   className="w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                 />
@@ -78,7 +86,7 @@ export default function ArtGallery() {
                   {piece.category} · {piece.date}
                 </p>
               </div>
-            </button>
+            </Link>
           </Reveal>
         ))}
       </div>

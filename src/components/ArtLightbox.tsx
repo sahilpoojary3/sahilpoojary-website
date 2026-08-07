@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Link2 } from "lucide-react";
 import type { ArtPiece } from "@/data/art";
 
 export default function ArtLightbox({
@@ -96,7 +97,7 @@ export default function ArtLightbox({
           <motion.img
             key={piece.image}
             src={piece.image}
-            alt={piece.title}
+            alt={`${piece.title} — ${piece.medium} by Sahil Poojary`}
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -123,6 +124,14 @@ export default function ArtLightbox({
               {piece.description}
             </p>
           )}
+          <Link
+            href={`/art/${piece.slug}`}
+            onClick={onClose}
+            className="mt-6 inline-flex items-center gap-1.5 text-xs font-medium text-white/60 hover:text-white transition-colors"
+          >
+            <Link2 size={12} />
+            View permalink
+          </Link>
           {pieces.length > 1 && (
             <p className="text-xs text-white/30 mt-8">
               {index + 1} / {pieces.length} — use ← → or swipe to browse

@@ -1,16 +1,36 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import ArtGallery from "@/components/ArtGallery";
+import { art } from "@/data/art";
 import { profile } from "@/config/profile";
 
 export const metadata: Metadata = {
   title: "My Art",
   description: `A gallery of original paintings, sketches and creative work by ${profile.name}.`,
+  alternates: { canonical: "/art" },
 };
 
 export default function ArtPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary.vercel.app";
+
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Artwork by ${profile.name}`,
+    itemListElement: art.map((piece, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${siteUrl}/art/${piece.slug}`,
+      name: piece.title,
+    })),
+  };
+
   return (
     <div className="py-20 sm:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
       <Container>
         <div className="max-w-2xl mx-auto text-center mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">

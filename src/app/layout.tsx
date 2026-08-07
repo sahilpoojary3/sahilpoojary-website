@@ -56,6 +56,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  // Drop your Google Search Console verification code in the
+  // GOOGLE_SITE_VERIFICATION environment variable to verify the property —
+  // no code changes needed. Leave unset until you have a real code; Next.js
+  // omits the meta tag entirely when this is undefined.
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 const personJsonLd = {
@@ -63,6 +70,7 @@ const personJsonLd = {
   "@type": "Person",
   name: profile.name,
   url: siteUrl,
+  image: `${siteUrl}/images/profile.jpg`,
   jobTitle: "Business & Management Professional",
   description: profile.tagline,
   address: {
@@ -77,6 +85,23 @@ const personJsonLd = {
     { "@type": "CollegeOrUniversity", name: "University Canada West" },
     { "@type": "CollegeOrUniversity", name: "University of Mumbai" },
   ],
+  knowsAbout: [
+    "Business Strategy",
+    "Marketing Management",
+    "Operations Management",
+    "Digital Transformation",
+    "eCommerce",
+    "Business Analysis",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: profile.name,
+  url: siteUrl,
+  publisher: { "@type": "Person", name: profile.name },
+  inLanguage: "en",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -91,6 +116,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <script
           // Applies persisted theme before paint to avoid a flash of the wrong theme.
