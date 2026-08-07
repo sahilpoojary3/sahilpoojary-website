@@ -62,7 +62,7 @@ export default async function InsightArticlePage(props: PageProps<"/insights/[sl
   const article = insights.find((a) => a.slug === slug);
   if (!article) notFound();
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
 
   const articleJsonLd = {
     "@context": "https://schema.org",

@@ -46,7 +46,7 @@ export default async function ArtworkPage(props: PageProps<"/art/[slug]">) {
   const prev = art[(index - 1 + art.length) % art.length];
   const next = art[(index + 1) % art.length];
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
 
   const jsonLd = {
     "@context": "https://schema.org",

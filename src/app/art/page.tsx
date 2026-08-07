@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function ArtPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
