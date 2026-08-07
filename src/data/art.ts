@@ -39,6 +39,24 @@ export const art: ArtPiece[] = [
       "I spent months on this one — not because it needed that long, but because I wanted to see how far patience could take a single idea. Every strand of fur, every shadow, every catch of light in the eyes was one slow stroke at a time, layered until the coat had real depth instead of just color. There was no moment where it suddenly came together — just showing up, session after session, fixing the smallest details and trusting they'd add up. That's become how I approach most things, honestly: don't rush the details, and don't call it done until it's right.",
   },
   {
+    title: "Where I'd Rather Be",
+    image: "/art/where-id-rather-be.jpg",
+    category: "Acrylic",
+    medium: "Acrylic on canvas",
+    date: "Undated",
+    description:
+      "Almost every surface here is built from small, individual dabs of the brush rather than blended strokes — closer to stippling than painting, and it took a lot longer than it probably needed to. I kept adding dots until the light actually felt like it was catching on the grass instead of just sitting flat on the canvas. It isn't a real place. It's just somewhere I'd go if I could — a stream, two quiet houses, nowhere to be. Some days I think that's the whole point of painting: giving yourself somewhere to be for a while.",
+  },
+  {
+    title: "Same Coin",
+    image: "/art/same-coin.jpg",
+    category: "Sketches",
+    medium: "Graphite on paper",
+    date: "Undated",
+    description:
+      "Fan art, honestly — Batman down one half, the Joker down the other, split by a single line straight through the middle of one face. The technical challenge was making the shading do the storytelling: heavier, blockier crosshatching on the Batman side, looser and more chaotic linework on the Joker side, so the two halves read as different people even though the bone structure underneath is identical. The idea stuck with me more than the drawing itself did — how much of 'hero' and 'villain' really just comes down to which side of the line you happened to land on.",
+  },
+  {
     title: "Last Light",
     image: "/art/forest-at-dusk.jpg",
     category: "Watercolor",
