@@ -21,3 +21,15 @@ export function monthYearToSortable(value: string): number {
   if (!Number.isNaN(year)) return year * 100;
   return 0;
 }
+
+// Formats an ISO "YYYY-MM-DD" string without shifting a day due to UTC
+// parsing — new Date("2026-08-07") parses as UTC midnight, which renders
+// as August 6 in any timezone behind UTC.
+export function formatIsoDate(iso: string): string {
+  const [year, month, day] = iso.split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}

@@ -1,8 +1,11 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
 import Reveal from "./ui/Reveal";
 import Tag from "./ui/Tag";
 import { selectedWork } from "@/data/selectedWork";
+import { insights } from "@/data/insights";
 
 const FIELDS: { key: keyof (typeof selectedWork)[number]; label: string }[] = [
   { key: "challenge", label: "Challenge" },
@@ -51,6 +54,23 @@ export default function SelectedWork() {
             </Reveal>
           ))}
         </div>
+
+        {insights.length > 0 && (
+          <Reveal delay={0.15}>
+            <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-line bg-paper-soft/60 p-6">
+              <p className="text-sm text-ink-soft">
+                Want the longer version of a couple of these stories?
+              </p>
+              <Link
+                href="/insights"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent shrink-0"
+              >
+                Read Insights
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </Reveal>
+        )}
       </Container>
     </section>
   );

@@ -15,6 +15,7 @@ const NAV_ITEMS = [
   { label: "About", href: "/#about" },
   { label: "Experience", href: "/#experience" },
   { label: "Work", href: "/#work" },
+  { label: "Insights", href: "/insights" },
   { label: "Art", href: "/art" },
   { label: "Resume", href: "/#resume", show: profile.sections.resume },
   { label: "Contact", href: "/#contact" },
@@ -64,8 +65,10 @@ export default function Navbar() {
     setOpen(false);
   }
 
-  const isActive = (href: string) =>
-    href === "/art" ? pathname === "/art" : pathname === "/" && activeHash === href;
+  const isActive = (href: string) => {
+    if (href === "/art" || href === "/insights") return pathname.startsWith(href);
+    return pathname === "/" && activeHash === href;
+  };
 
   return (
     <header
