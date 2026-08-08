@@ -10,6 +10,11 @@ export const profile = {
     "MBA Graduate | Business Strategy & Marketing | Administrative & Operations Professional | eCommerce & Digital Transformation Enthusiast",
   tagline:
     "I'm building a career at the crossroads of operations, marketing and digital transformation — an MBA graduate now splitting my time between a non-profit I help direct and running events for a growing hospitality brand.",
+  // Kept short (~150-160 chars) on purpose — search engines truncate or
+  // flag longer meta descriptions. Used for <meta description>, OG, and
+  // Twitter cards; the fuller `tagline` above is for on-page copy.
+  metaDescription:
+    "Sahil Poojary is a Business & Management Professional in Vancouver, BC — MBA graduate working across operations, marketing, and digital transformation.",
   location: "Vancouver, British Columbia, Canada",
   openTo: "I'm open to consulting and management opportunities",
 
