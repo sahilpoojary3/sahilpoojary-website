@@ -50,6 +50,16 @@ export default function SelectedWork() {
                     <Tag key={tag}>{tag}</Tag>
                   ))}
                 </div>
+
+                {w.insightSlug && (
+                  <Link
+                    href={`/insights/${w.insightSlug}`}
+                    className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent"
+                  >
+                    Read the full story
+                    <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                )}
               </article>
             </Reveal>
           ))}
@@ -59,7 +69,7 @@ export default function SelectedWork() {
           <Reveal delay={0.15}>
             <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-line bg-paper-soft/60 p-6">
               <p className="text-sm text-ink-soft">
-                Want the longer version of a couple of these stories?
+                Want more of these stories?
               </p>
               <Link
                 href="/insights"

@@ -7,6 +7,8 @@ export type WorkEntry = {
   outcome: string;
   learned: string;
   tags: string[];
+  // Slug of the Insights article that tells this story in full, if one exists.
+  insightSlug?: string;
 };
 
 // Real initiatives drawn from my own experience and activity — no invented
@@ -16,6 +18,7 @@ export const selectedWork: WorkEntry[] = [
     title: "Car Free Day 2025 — Event Operations with Sula",
     context: "Manager, Sula Indian Restaurant",
     date: "2025",
+    insightSlug: "what-a-rainstorm-taught-me-about-event-operations",
     challenge:
       "I was representing Sula at a large public community event when, mid-way through, heavy rain suddenly hit — stalls needed protection, visitors needed guidance, and the whole setup needed adjusting fast.",
     action:
@@ -30,6 +33,7 @@ export const selectedWork: WorkEntry[] = [
     title: "NSS Blood Donation Drive — Andheri Railway Station",
     context: "Secretary, National Service Scheme (NSS) Unit, Smt. MMK College of Commerce & Economics",
     date: "College years",
+    insightSlug: "180-units-of-blood-one-afternoon",
     challenge:
       "I helped lead one of the largest blood donation drives ever held at Andheri Railway Station, where every unit collected was earmarked for Thalassemia patients who depend on regular transfusions to stay alive.",
     action:
