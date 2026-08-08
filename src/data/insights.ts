@@ -19,6 +19,17 @@ export type InsightArticle = {
 // Every article here is grounded in Sahil's own, already-verified experience —
 // no invented expertise, no generic "thought leadership" written to fill a
 // publishing quota. Add new pieces only when there's a real story to tell.
+//
+// Voice notes (derived from Sahil's own writing on this site — keep new
+// pieces consistent with this, don't drift toward generic AI-blog tone):
+//   - First person, contractions throughout (I've, didn't, it's)
+//   - Concrete specifics before the lesson — show the situation, then name
+//     what it meant, never the other way around
+//   - Short bold mini-headings framed as a plain phrase, not a question
+//   - "What I learned" as a short list of aphorism + one-line elaboration
+//   - Closes on a quiet, understated reflection — never a hype CTA
+//   - No exclamation points, no "in today's world," no corporate buzzwords
+//   - Comfortable being plain: "just work," "unglamorous," "not the point"
 export const insights: InsightArticle[] = [
   {
     slug: "what-a-rainstorm-taught-me-about-event-operations",
@@ -95,6 +106,44 @@ export const insights: InsightArticle[] = [
       {
         type: "paragraph",
         text: "I've carried that lesson into everything since — from running catering operations at community events to the non-profit work I do now with ELE Foundation. The instinct is the same: figure out what actually moves the outcome, and put the discipline there, not just in the parts of the work that feel meaningful in the moment.",
+      },
+    ],
+  },
+  {
+    slug: "a-restaurant-and-a-factory-taught-me-the-same-job",
+    title: "A Restaurant and a Factory Taught Me the Same Job",
+    dek: "Operations Supervisor at a surgical products company, then Manager at a catering business — different industries, same underlying skill.",
+    category: "Operations & Management",
+    publishedDate: "2026-08-08",
+    readingMinutes: 4,
+    tags: ["Operations", "Career", "Leadership"],
+    content: [
+      {
+        type: "paragraph",
+        text: "Before Sula, before ELE Foundation, I spent six months as an Operations Supervisor at Surgical Products India — a health and medical products company in Maharashtra. Different industry, different country, different stakes entirely from catering. But when I started managing operations for Sula's catering business in Vancouver a few years later, a lot of it felt oddly familiar.",
+      },
+      { type: "heading", text: "The details change. The job doesn't." },
+      {
+        type: "paragraph",
+        text: "At Surgical Products, inventory had to be right because a shortage meant a production line waiting on parts, not a customer complaining. At Sula, inventory means prep quantities, POS stock, and having enough on hand for a catering job at a community event without over-ordering and eating the cost. The consequences are completely different. The actual skill — know what you have, know what you'll need, don't guess — is the same one.",
+      },
+      { type: "heading", text: "The part nobody puts on a job title" },
+      {
+        type: "paragraph",
+        text: "At the factory, a big part of the role was acting as the communication bridge between staff and management — translating what was happening on the floor into something leadership could act on, and translating decisions back down in a way the team could actually use. At Sula, that same function shows up as vendor and stakeholder management: negotiating with suppliers, coordinating with event organizers, making sure the kitchen, service, and logistics teams aren't working from three different versions of the plan. Nobody hires for \"being the translator between two groups who don't talk to each other enough.\" But it's most of what operations work actually is.",
+      },
+      { type: "heading", text: "What stuck with me" },
+      {
+        type: "list",
+        items: [
+          "Inventory discipline isn't glamorous, but it's the same muscle whether it's surgical components or catering supplies.",
+          "Being the go-between is a real, learnable skill — not just something that happens to whoever's in the middle.",
+          "Most operations jobs are the same job wearing a different uniform. The room changes. The problem doesn't.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "I don't think of my work history as separate chapters — a manufacturing stint here, a hospitality job there, unrelated to each other. It's closer to the same exercise, done in different rooms, with different things on the line. That's part of why I don't worry much about switching industries. The room is rarely the hard part.",
       },
     ],
   },

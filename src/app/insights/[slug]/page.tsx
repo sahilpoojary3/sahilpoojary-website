@@ -62,6 +62,8 @@ export default async function InsightArticlePage(props: PageProps<"/insights/[sl
   const article = insights.find((a) => a.slug === slug);
   if (!article) notFound();
 
+  const related = insights.filter((a) => a.slug !== article.slug).slice(0, 2);
+
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
 
   const articleJsonLd = {
@@ -157,6 +159,31 @@ export default async function InsightArticlePage(props: PageProps<"/insights/[sl
               section.
             </p>
           </div>
+
+          {related.length > 0 && (
+            <div className="mt-12 pt-8 border-t border-line">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-soft mb-5">
+                Related reading
+              </p>
+              <div className="grid gap-6 sm:grid-cols-2">
+                {related.map((piece) => (
+                  <Link
+                    key={piece.slug}
+                    href={`/insights/${piece.slug}`}
+                    className="group block rounded-2xl border border-line p-5 transition-colors hover:border-accent"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent">
+                      {piece.category}
+                    </p>
+                    <h3 className="font-display text-lg text-ink mt-2 leading-snug group-hover:text-accent transition-colors">
+                      {piece.title}
+                    </h3>
+                    <p className="text-sm text-ink-soft mt-2 leading-relaxed">{piece.dek}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <Link
             href="/insights"
