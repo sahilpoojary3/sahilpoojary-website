@@ -2,21 +2,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, X, Send, User } from "lucide-react";
+import { Sparkles, X, Send, User, RotateCcw } from "lucide-react";
+import Link from "next/link";
 import { profile } from "@/config/profile";
 import { answerLocally, SUGGESTED_QUESTIONS } from "@/lib/ask-sahil";
 import { ASK_SAHIL_OPEN_EVENT } from "@/lib/ask-sahil-events";
 
-type Message = { role: "user" | "assistant"; text: string };
+type Message = { role: "user" | "assistant"; text: string; links?: { label: string; href: string }[] };
+
+const GREETING: Message = {
+  role: "assistant",
+  text: `Hi — I'm Ask ${profile.name.split(" ")[0]}. Ask me anything about his background, work, or writing.`,
+};
 
 export default function AskSahil() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      text: `Hi, I'm Ask Sahil — I can answer questions about ${profile.name}'s background using only what's verified on his profile. What would you like to know?`,
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([GREETING]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -33,6 +34,7 @@ export default function AskSahil() {
 
   async function ask(question: string) {
     if (!question.trim() || loading) return;
+    const history = messages.map(({ role, text }) => ({ role, text }));
     setMessages((m) => [...m, { role: "user", text: question }]);
     setInput("");
     setLoading(true);
@@ -41,17 +43,22 @@ export default function AskSahil() {
       const res = await fetch("/api/ask", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question, history }),
       });
       if (!res.ok) throw new Error("bad response");
       const data = await res.json();
-      setMessages((m) => [...m, { role: "assistant", text: data.answer }]);
+      setMessages((m) => [...m, { role: "assistant", text: data.answer, links: data.links }]);
     } catch {
-      const local = answerLocally(question);
-      setMessages((m) => [...m, { role: "assistant", text: local.answer }]);
+      const local = answerLocally(question, history);
+      setMessages((m) => [...m, { role: "assistant", text: local.answer, links: local.links }]);
     } finally {
       setLoading(false);
     }
+  }
+
+  function resetConversation() {
+    setMessages([GREETING]);
+    setInput("");
   }
 
   return (
@@ -102,14 +109,25 @@ export default function AskSahil() {
                     <p className="text-[11px] text-ink-soft">Grounded in verified profile data</p>
                   </div>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="Close chat"
-                  className="text-ink-soft hover:text-ink transition-colors"
-                >
-                  <X size={18} />
-                </button>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={resetConversation}
+                    aria-label="Start a new conversation"
+                    title="Start a new conversation"
+                    className="text-ink-soft hover:text-ink transition-colors p-1"
+                  >
+                    <RotateCcw size={16} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    aria-label="Close chat"
+                    className="text-ink-soft hover:text-ink transition-colors p-1"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
               </div>
 
               <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
@@ -122,14 +140,29 @@ export default function AskSahil() {
                     >
                       {m.role === "user" ? <User size={13} /> : <Sparkles size={13} />}
                     </span>
-                    <div
-                      className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed whitespace-pre-line ${
-                        m.role === "user"
-                          ? "bg-accent text-paper rounded-tr-sm"
-                          : "bg-paper-soft text-ink rounded-tl-sm"
-                      }`}
-                    >
-                      {m.text}
+                    <div className={`max-w-[80%] flex flex-col gap-1.5 ${m.role === "user" ? "items-end" : "items-start"}`}>
+                      <div
+                        className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed whitespace-pre-line ${
+                          m.role === "user"
+                            ? "bg-accent text-paper rounded-tr-sm"
+                            : "bg-paper-soft text-ink rounded-tl-sm"
+                        }`}
+                      >
+                        {m.text}
+                      </div>
+                      {!!m.links?.length && (
+                        <div className="flex flex-wrap gap-1.5">
+                          {m.links.map((link) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              className="text-[11px] rounded-full border border-line px-2.5 py-1 text-accent hover:border-accent transition-colors"
+                            >
+                              Read: {link.label} →
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
