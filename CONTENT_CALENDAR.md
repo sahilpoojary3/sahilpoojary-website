@@ -1,52 +1,74 @@
 # Content Calendar
 
-Working log for the Insights publication. Updated as part of ongoing SEO/content
-work — not a static plan. Every entry here is either published, or a real,
-groundable idea; nothing goes on the "planned" list unless there's a genuine
-story behind it. Zero new articles in a given week is an acceptable outcome —
-see the rule below.
+Living document, updated by every weekly SEO/content session (automated —
+see the "weekly-seo-content-review" scheduled task) and by ad-hoc work in
+between. Governed by [`SEO_CONTENT_OPERATIONS.md`](SEO_CONTENT_OPERATIONS.md)
+— read that first for the rules behind every decision made here.
 
-**Standing rule:** publish only what's grounded in Sahil's own, already-verified
-experience (LinkedIn history, education, real events he's described). Never
-invent a story, opinion, or statistic to fill a slot on this calendar. If a
-pillar below has no real material yet, it stays empty until Sahil provides it —
-see "Open pillars" at the bottom.
+**Zero new articles in a week is a fine outcome.** Nothing goes on the
+Planned table unless it's either fully grounded in Sahil's real experience or
+clearly framed as research/analysis. Never filler, never fabricated.
 
 ---
 
 ## Published
 
-| Title | URL | Category | Published | Notes |
+| Title | Category | Type | Published | URL |
 |---|---|---|---|---|
-| What a Rainstorm Taught Me About Event Operations | [/insights/what-a-rainstorm-taught-me-about-event-operations](https://sahilpoojary-website.vercel.app/insights/what-a-rainstorm-taught-me-about-event-operations) | Operations & Management | 2026-08-07 | Launch article — Car Free Day / Sula catering |
-| 180 Units of Blood, One Afternoon | [/insights/180-units-of-blood-one-afternoon](https://sahilpoojary-website.vercel.app/insights/180-units-of-blood-one-afternoon) | Leadership & Community | 2026-08-07 | Launch article — NSS blood donation drive |
-| A Restaurant and a Factory Taught Me the Same Job | [/insights/a-restaurant-and-a-factory-taught-me-the-same-job](https://sahilpoojary-website.vercel.app/insights/a-restaurant-and-a-factory-taught-me-the-same-job) | Operations & Management | 2026-08-08 | Synthesizes Surgical Products India + Sula roles |
+| What a Rainstorm Taught Me About Event Operations | Operations & Management | Personal | 2026-08-07 | [/insights/what-a-rainstorm-taught-me-about-event-operations](https://sahilpoojary-website.vercel.app/insights/what-a-rainstorm-taught-me-about-event-operations) |
+| 180 Units of Blood, One Afternoon | Leadership & Community | Personal | 2026-08-07 | [/insights/180-units-of-blood-one-afternoon](https://sahilpoojary-website.vercel.app/insights/180-units-of-blood-one-afternoon) |
+| A Restaurant and a Factory Taught Me the Same Job | Operations & Management | Personal | 2026-08-08 | [/insights/a-restaurant-and-a-factory-taught-me-the-same-job](https://sahilpoojary-website.vercel.app/insights/a-restaurant-and-a-factory-taught-me-the-same-job) |
 
-## Topic pillars
+## Topic pillars — current state
 
-- **Business & Strategy** — grounded in MBA coursework, ELE Foundation direction work, Sula operations
-- **MBA & Education** — UCW MBA experience, program specifics, what actually changed in how Sahil works
-- **Operations & Management** — the strongest-covered pillar so far (all 3 published pieces live here or adjacent)
-- **Leadership & Community** — NSS, ELE Foundation, community event work
-- **Accounting & Finance** — *open, see below*
-- **AI + Business** — *open, see below*
-- **Research & Analysis** — UCW research papers (digital transformation, business analysis, eCommerce) — unexplored, real material exists
-
-## Planned (grounded ideas, not yet written)
-
-| Idea | Pillar | Grounding | Status |
+| Pillar | Personal grounding | Research-based OK | Status |
 |---|---|---|---|
-| What UCW's MBA actually changed about how I work | MBA & Education | Real — Sahil's own program experience | Needs a conversation with Sahil to pull specifics beyond what's already on the site |
-| The research papers behind the resume line | Research & Analysis | Real — digital transformation / business analysis / eCommerce papers referenced in `about.full` | Needs Sahil to share paper topics/takeaways — not yet detailed enough to write from |
-| Directing a non-profit while working full-time | Leadership & Community | Real — ELE Foundation | Needs specifics: what the role actually involves day-to-day |
+| Operations & Management | Strong (Sula, Surgical Products India, NSS) | Yes | Active, best-covered |
+| Leadership & Community | Strong (NSS, ELE Foundation) | Yes | Active |
+| Business & Management | Moderate (MBA, ELE direction work) | Yes | Not yet started |
+| MBA & Education | Real but under-detailed — see Needs Sahil | Yes | Not yet started |
+| Research & Analysis | Real (UCW papers) but under-detailed — see Needs Sahil | Yes | Not yet started |
+| Accounting & Finance | None yet | Yes — start here | Not yet started |
+| AI + Business | None yet | Yes — start here | Not yet started |
+| Technology & Digital Transformation | Light (referenced in About) | Yes | Not yet started |
+| Strategy | Light (MBA-adjacent) | Yes | Not yet started |
+| Career Development | Moderate (career-switch narrative) | Yes | Not yet started |
 
-## Open pillars — need input from Sahil before anything is written
+## Planned
 
-- **Accounting & Finance** — no verified experience on record yet. Will not publish generic finance content to fill this pillar.
-- **AI + Business** — no verified experience on record yet. Will not publish generic "AI trends" content — that's exactly the genre of filler this calendar is designed to avoid.
+Populated as opportunities are identified. Columns per the operations
+charter: pillar, type, audience, search intent, target keyword, brand
+relevance, internal link targets, backlink potential, priority, status.
 
-If there's real experience behind either of these (a project, a course, a specific opinion formed from actual work), that's what unlocks writing here.
+| Title | Pillar | Type | Target audience | Search intent | Target keyword | Why relevant | Internal links | Backlink value | Priority | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| _(none queued yet — first weekly review will populate this)_ | | | | | | | | | | |
+
+## Needs Sahil Input
+
+Strong article ideas blocked on real information only Sahil can provide.
+Nothing here gets written until answered — no invented substitute.
+
+### What UCW's MBA Actually Changed About How I Think
+- What did the MBA change about how you approach business problems?
+- Which course or professor had the biggest impact, and why?
+- Is there a specific concept/framework you actually use since?
+- What surprised you most, going in vs. coming out?
+
+### The Research Behind the Résumé Line
+`about.full` references research papers on digital transformation, business
+analysis, and eCommerce.
+- What were the actual paper topics/titles?
+- What was the core finding or argument in each?
+- Did writing them change any of your own thinking?
+
+### Directing a Non-Profit While Working Full-Time (ELE Foundation)
+- What does the ELE Foundation role actually involve week to week?
+- What's a real decision or problem you've had to work through there?
+- What's different about leading in a non-profit vs. a business context?
 
 ---
 
-*Maintained alongside `src/data/insights.ts`. When an article is added there, it should be added to the Published table above in the same change.*
+*This file is read at the start of every weekly session — see
+`SEO_CONTENT_OPERATIONS.md` for the full operating rules and
+`.claude/scheduled-tasks/weekly-seo-content-review/` for the automation.*
