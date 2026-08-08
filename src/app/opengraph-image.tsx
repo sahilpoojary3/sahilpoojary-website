@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { profile } from "@/config/profile";
 
-export const alt = `${profile.name} — Business & Management Professional`;
+export const alt = `${profile.name} — Operations-Focused Business & Management Professional`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -61,7 +61,7 @@ export default function Image() {
             lineHeight: 1.4,
           }}
         >
-          Business & Management Professional — Strategy, Marketing &amp; Operations
+          Operations-Focused Business & Management Professional
         </div>
       </div>
     ),

@@ -21,8 +21,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-websit
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  // Shorter than the OG/Twitter titles below on purpose — Google truncates
+  // <title> around ~60 characters in search results, and a mid-word cutoff
+  // reads worse than a tighter, complete title.
   title: {
-    default: `${profile.name} — Business & Management Professional`,
+    default: `${profile.name} — Operations & Business Management`,
     template: `%s — ${profile.name}`,
   },
   description: profile.metaDescription,
@@ -42,14 +45,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: `${profile.name} — Business & Management Professional`,
+    title: `${profile.name} — Operations-Focused Business & Management Professional`,
     description: profile.metaDescription,
     siteName: profile.name,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: profile.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — Business & Management Professional`,
+    title: `${profile.name} — Operations-Focused Business & Management Professional`,
     description: profile.metaDescription,
     images: ["/opengraph-image"],
   },
@@ -80,7 +83,7 @@ const personJsonLd = {
   name: profile.name,
   url: siteUrl,
   image: `${siteUrl}/images/profile.jpg`,
-  jobTitle: "Business & Management Professional",
+  jobTitle: "Operations-Focused Business & Management Professional",
   description: profile.metaDescription,
   address: {
     "@type": "PostalAddress",

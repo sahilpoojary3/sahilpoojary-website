@@ -14,7 +14,7 @@ export default function Footer() {
       <Container className="py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
           <p className="font-display text-lg text-ink">{profile.name}</p>
-          <p className="text-sm text-ink-soft mt-1">Business & Management Professional</p>
+          <p className="text-sm text-ink-soft mt-1">Operations-Focused Business & Management Professional</p>
         </div>
 
         <div className="flex items-center gap-5">

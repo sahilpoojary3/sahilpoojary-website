@@ -6,15 +6,22 @@ export const profile = {
   name: "Sahil Poojary",
   initials: "SP",
   pronouns: "He/Him",
+  // Leads with Operations because that's what every job, story, and
+  // published article actually demonstrates — not because it sounds more
+  // impressive. Every element here is still a real, held credential; this
+  // is a resequencing for clarity, not a new claim. Sahil's LinkedIn
+  // headline lists these same four things in a broader, platform-optimized
+  // order — see SEO_CONTENT_OPERATIONS.md's positioning note if reconciling
+  // the two.
   headline:
-    "MBA Graduate | Business Strategy & Marketing | Administrative & Operations Professional | eCommerce & Digital Transformation Enthusiast",
+    "Operations-Focused Business & Management Professional | MBA Graduate",
   tagline:
-    "I'm building a career at the crossroads of operations, marketing and digital transformation — an MBA graduate now splitting my time between a non-profit I help direct and running events for a growing hospitality brand.",
+    "My work is operations when the plan meets reality — coordinating events, teams, and logistics under pressure, from a rain-soaked community festival to a non-profit's day-to-day. MBA-trained in leadership, strategy, and marketing.",
   // Kept short (~150-160 chars) on purpose — search engines truncate or
   // flag longer meta descriptions. Used for <meta description>, OG, and
   // Twitter cards; the fuller `tagline` above is for on-page copy.
   metaDescription:
-    "Sahil Poojary is a Business & Management Professional in Vancouver, BC — MBA graduate working across operations, marketing, and digital transformation.",
+    "Sahil Poojary — Operations-focused Business & Management professional in Vancouver, BC. MBA graduate leading a non-profit and running event operations.",
   location: "Vancouver, British Columbia, Canada",
   openTo: "I'm open to consulting and management opportunities",
 
