@@ -65,9 +65,18 @@ export const metadata: Metadata = {
   },
 };
 
+// Stable @id anchors so every page's JSON-LD refers to the SAME Person and
+// WebSite entities instead of each declaring its own disconnected stub —
+// this is what lets Google/AI systems merge "Sahil Poojary" into one
+// canonical entity across the homepage, author page, and articles rather
+// than seeing several thin, unlinked fragments.
+const PERSON_ID = `${siteUrl}/#person`;
+const WEBSITE_ID = `${siteUrl}/#website`;
+
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": PERSON_ID,
   name: profile.name,
   url: siteUrl,
   image: `${siteUrl}/images/profile.jpg`,
@@ -82,8 +91,8 @@ const personJsonLd = {
   email: `mailto:${profile.email}`,
   sameAs: [profile.socials.linkedin],
   alumniOf: [
-    { "@type": "CollegeOrUniversity", name: "University Canada West" },
-    { "@type": "CollegeOrUniversity", name: "University of Mumbai" },
+    { "@type": "CollegeOrUniversity", name: "University Canada West", url: "https://www.ucanwest.ca/" },
+    { "@type": "CollegeOrUniversity", name: "University of Mumbai", url: "https://mu.ac.in/" },
   ],
   knowsAbout: [
     "Business Strategy",
@@ -98,9 +107,10 @@ const personJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": WEBSITE_ID,
   name: profile.name,
   url: siteUrl,
-  publisher: { "@type": "Person", name: profile.name },
+  publisher: { "@id": PERSON_ID },
   inLanguage: "en",
 };
 

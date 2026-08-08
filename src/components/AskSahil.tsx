@@ -21,6 +21,8 @@ export default function AskSahil() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const openButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handler = () => setOpen(true);
@@ -31,6 +33,26 @@ export default function AskSahil() {
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, loading]);
+
+  function closeChat() {
+    setOpen(false);
+    openButtonRef.current?.focus();
+  }
+
+  // Keyboard users: Escape closes the dialog, focus moves into the input on
+  // open and back to the launcher button on close, instead of getting lost.
+  useEffect(() => {
+    if (!open) return;
+    inputRef.current?.focus();
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        openButtonRef.current?.focus();
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   async function ask(question: string) {
     if (!question.trim() || loading) return;
@@ -64,6 +86,7 @@ export default function AskSahil() {
   return (
     <>
       <motion.button
+        ref={openButtonRef}
         type="button"
         onClick={() => setOpen(true)}
         aria-label="Open Ask Sahil chat"
@@ -85,7 +108,7 @@ export default function AskSahil() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setOpen(false)}
+              onClick={closeChat}
               className="fixed inset-0 z-40 bg-black/30 backdrop-blur-[2px]"
               aria-hidden="true"
             />
@@ -121,7 +144,7 @@ export default function AskSahil() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setOpen(false)}
+                    onClick={closeChat}
                     aria-label="Close chat"
                     className="text-ink-soft hover:text-ink transition-colors p-1"
                   >
@@ -208,6 +231,7 @@ export default function AskSahil() {
                 className="flex items-center gap-2 border-t border-line p-3"
               >
                 <input
+                  ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about Sahil's background..."

@@ -53,7 +53,7 @@ export default async function ArtworkPage(props: PageProps<"/art/[slug]">) {
     "@type": "CreativeWork",
     name: piece.title,
     description: piece.description,
-    creator: { "@type": "Person", name: profile.name, url: siteUrl },
+    creator: { "@id": `${siteUrl}/#person` },
     artMedium: piece.medium,
     dateCreated: piece.date !== "Undated" ? piece.date : undefined,
     image: `${siteUrl}${piece.image}`,

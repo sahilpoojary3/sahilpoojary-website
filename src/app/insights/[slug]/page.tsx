@@ -27,6 +27,11 @@ export async function generateMetadata(props: PageProps<"/insights/[slug]">): Pr
       publishedTime: article.publishedDate,
       authors: [profile.name],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.dek,
+    },
   };
 }
 
@@ -73,7 +78,10 @@ export default async function InsightArticlePage(props: PageProps<"/insights/[sl
     description: article.dek,
     datePublished: article.publishedDate,
     dateModified: article.updatedDate ?? article.publishedDate,
-    author: { "@type": "Person", name: profile.name, url: `${siteUrl}/author/sahil-poojary` },
+    author: { "@id": `${siteUrl}/#person` },
+    publisher: { "@id": `${siteUrl}/#person` },
+    image: `${siteUrl}/insights/${article.slug}/opengraph-image`,
+    mainEntityOfPage: `${siteUrl}/insights/${article.slug}`,
     url: `${siteUrl}/insights/${article.slug}`,
   };
 

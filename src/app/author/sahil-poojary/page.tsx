@@ -16,15 +16,14 @@ export const metadata: Metadata = {
 export default function AuthorPage() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
 
+  // References the same Person declared on the homepage (layout.tsx) via
+  // @id rather than redeclaring a second, thinner Person — one canonical
+  // entity across the site instead of disconnected fragments.
   const profilePageJsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    mainEntity: {
-      "@type": "Person",
-      name: profile.name,
-      url: siteUrl,
-      sameAs: [profile.socials.linkedin],
-    },
+    url: `${siteUrl}/author/sahil-poojary`,
+    mainEntity: { "@id": `${siteUrl}/#person` },
   };
 
   return (

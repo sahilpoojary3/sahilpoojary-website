@@ -92,6 +92,31 @@ analysis, and eCommerce.
 - What's a real decision or problem you've had to work through there?
 - What's different about leading in a non-profit vs. a business context?
 
+### Should the Resume section come back?
+`sections.resume` is off (your earlier call) and no `public/resume.pdf`
+exists. That's respected — not changed without asking. But the master
+mandate's "recruiter with 30 seconds" test flags this as a real gap: a
+recruiter can piece together your background from Experience/Education/
+Skills, but can't download a resume in one click. If you want it back,
+drop a PDF at `public/resume.pdf` and say the word — the button already
+exists and activates automatically once the file is present.
+
+---
+
+## Missed opportunities log
+
+Surfaced during audits, not requested — each with an honest recommendation,
+not just "here's an idea." Removed once addressed or superseded.
+
+| Opportunity | Why it matters | Recommendation |
+|---|---|---|
+| Rate limiting on `/api/ask` | No abuse protection on the endpoint. Low risk today (no paid API key configured, so abuse just costs local compute), but would matter the moment an `ANTHROPIC_API_KEY` is added — an abusive script could run up real API costs. | Don't build now — needs Vercel KV or similar infra I shouldn't provision unasked. Revisit if/when a real API key gets added. |
+| Site search / topic hub pages | Only 3 articles exist — a search feature or dedicated topic-cluster pages would be near-empty and read as thin/premature. | Not worth it yet. Revisit once there are ~8-10 articles across 2+ pillars. |
+| Interactive career timeline / data visualization | Sounds impressive, but the existing Journey timeline + Experience cards already cover this clearly; a visualization would be decorative, not more useful. | Don't build — no real UX or SEO gain over what exists. |
+| Per-article OG/Twitter images | Article links shared on LinkedIn had no dedicated share-card image — fell back to generic/none. | **Built this session** — dynamic per-article image showing title + category, plus a `twitter-image` route. |
+| Fragmented Person schema across pages | Homepage, author page, and articles each declared their own disconnected `Person`/author object instead of one canonical entity — weakens entity clarity for Google/AI systems. | **Built this session** — unified via a stable `@id` (`#person`) referenced everywhere instead of redeclared. |
+| Chatbot keyboard accessibility | The Ask Sahil dialog had no Escape-to-close and no focus management (open → focus lost, close → focus lost). | **Built this session** — Escape closes it, focus moves to the input on open and back to the launcher button on close. |
+
 ---
 
 ## Session log
@@ -111,6 +136,24 @@ examples) rather than drafting one this cycle, since the SEO fix + internal
 linking were the higher-priority items available. Documented the two known
 backlink opportunities (LinkedIn Featured, UCW alumni story) so they're not
 only in chat history.
+
+**2026-08-08 — master-mandate audit.** Rewrote `SEO_CONTENT_OPERATIONS.md`
+into a full multi-disciplinary charter (SEO/UX/performance/accessibility/
+security/E-E-A-T/GEO/prioritization/content-scoring) and updated the weekly
+scheduled task to match. Ran a fresh audit rather than trusting prior
+sessions' conclusions — found and fixed 3 real issues: (1) Insights articles
+had no per-article social share image (added a dynamic `opengraph-image` +
+`twitter-image` route per article); (2) the Person entity was redeclared
+three separate, disconnected times across the homepage/author page/articles
+instead of one linked entity (unified via `@id`); (3) the Ask Sahil dialog
+had no Escape-to-close or focus management (fixed). Checked live signals:
+Google/Bing performance reports are still processing (expected — very new,
+low-authority site), but the homepage is confirmed indexed and already
+ranks **#2** for "Sahil Poojary" and "Sahil Poojary Vancouver" behind only
+his LinkedIn profile — a genuinely strong early entity-SEO result. `npm
+audit` clean, no vulnerable dependencies. Logged the resume-section gap as
+Needs Sahil Input rather than silently re-enabling something Sahil
+explicitly turned off earlier.
 
 ---
 
