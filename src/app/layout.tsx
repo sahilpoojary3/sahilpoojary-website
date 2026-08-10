@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { profile } from "@/config/profile";
 import Navbar from "@/components/Navbar";
@@ -154,6 +155,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         {profile.sections.askSahil && <AskSahil />}
+        <Analytics />
       </body>
     </html>
   );
