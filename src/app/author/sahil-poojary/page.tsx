@@ -36,7 +36,7 @@ export default function AuthorPage() {
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center gap-5">
             <Image
-              src="/images/profile.jpg"
+              src="/images/sahil-poojary-profile.jpg"
               alt={profile.name}
               width={80}
               height={94}

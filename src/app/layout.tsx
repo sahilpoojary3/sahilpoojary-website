@@ -83,7 +83,7 @@ const personJsonLd = {
   "@id": PERSON_ID,
   name: profile.name,
   url: siteUrl,
-  image: `${siteUrl}/images/profile.jpg`,
+  image: `${siteUrl}/images/sahil-poojary-profile.jpg`,
   jobTitle: "Operations-Focused Business & Management Professional",
   description: profile.metaDescription,
   address: {

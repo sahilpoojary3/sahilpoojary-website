@@ -108,7 +108,7 @@ export default function Hero() {
             />
             <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-line shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
               <Image
-                src="/images/profile.jpg"
+                src="/images/sahil-poojary-profile.jpg"
                 alt={profile.name}
                 fill
                 priority
