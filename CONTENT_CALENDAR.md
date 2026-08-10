@@ -84,10 +84,53 @@ sent in his name.
 long backlink wishlist this early would be busywork, not strategy. Revisit
 and expand once there's more published content worth linking to.*
 
+## SERP research record (2026-08-08)
+
+Live Google searches, not assumption. Pattern was identical across every
+query checked — "Sahil Poojary", "+ MBA", "+ Vancouver", "+ business", "+
+University Canada West", "+ LinkedIn": **#1 is always Sahil's own LinkedIn
+profile, #2 is always this site.** Positions 3+ are near-entirely unrelated
+people who happen to share the surname (other "Sahil Poojary"/"Poojari"/
+"Pujari" individuals worldwide — software engineers, project managers,
+hospitality workers — none of them him).
+
+Real finding: searching "Sahil Poojary University Canada West" surfaces
+legitimate third-party academic mentions on Credential.net, CliffsNotes,
+Studocu, and CourseSidekick — course assignments (BUSI 650, MGMT 640) filed
+under the name **"Sahil Narayan Poojary"** with a UCW student ID. These are
+real, already-indexed, not something to chase — but they confirm his full
+legal name includes "Narayan," which the site doesn't currently reference
+anywhere (see Needs Sahil Input).
+
+**Why #2 and not #1**, evidence-based: this isn't a competitor problem, it's
+an authority-age problem. LinkedIn.com carries decades of accumulated
+domain authority plus this specific profile's own history (1.4K+ followers,
+years of posts/engagement). The site is ~1 week old with zero external
+backlinks. Google's ranking gap here is about accumulated off-site trust
+(backlinks, age, engagement), not on-page content quality — the on-page
+entity signals are already strong. Displacing a well-established LinkedIn
+profile from #1 for an exact-name query is realistically a 6–18 month
+project driven by legitimate backlinks and continued content authority, not
+a technical fix. Said plainly in the report rather than promised as
+imminent.
+
 ## Needs Sahil Input
 
 Strong article ideas blocked on real information only Sahil can provide.
 Nothing here gets written until answered — no invented substitute.
+
+### Does "Narayan" belong anywhere on the site?
+Real third-party academic records (Credential.net, CliffsNotes, Studocu,
+CourseSidekick) already list Sahil's coursework under "Sahil Narayan
+Poojary." Not added anywhere on the site — deliberately not decided
+unilaterally, since it's a self-presentation choice (some people keep a
+middle name off public profiles on purpose), not a factual correction.
+- Do you want "Narayan" added as `alternateName` in the Person schema (an
+  invisible, structured-data-only signal that helps Google connect those
+  academic mentions to the same identity — doesn't change anything visible
+  on the site)?
+- Or leave it out entirely — also completely fine, just say so and this
+  closes.
 
 ### Positioning decision: does the sharper on-site headline stand?
 2026-08-08: the site headline was changed from a verbatim copy of Sahil's
@@ -235,6 +278,19 @@ the onboarding screen, not real zero-traffic data). Installed
 `script.js` and a `view` event both returned 200 on production. Future
 sessions can now pull real visitor/page-view data from the Vercel Analytics
 dashboard instead of reporting "no data available."
+
+**2026-08-08 — SEO dominance research.** Live-searched 6 name+topic query
+variants rather than assuming the earlier #2 finding still held. Pattern
+confirmed consistent: LinkedIn #1, this site #2, every query checked.
+Answered the "why not #1" question with evidence (see SERP research record
+above) rather than speculation — it's an authority-age gap, not a content
+gap, and not fixable on a short timeline. Found real third-party academic
+mentions revealing Sahil's full name ("Sahil Narayan Poojary") — flagged as
+Needs Sahil rather than added unilaterally. Implemented the one clean,
+safe, immediately-actionable finding: renamed profile.jpg to
+sahil-poojary-profile.jpg (it's already ranking in Google Images under the
+generic filename). Did not repeat the technical/schema/positioning work
+already done in the prior two sessions.
 
 ---
 
