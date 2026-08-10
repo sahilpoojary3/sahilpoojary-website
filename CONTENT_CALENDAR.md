@@ -227,6 +227,15 @@ articles: all KEEP, no merge/remove candidates yet. Built an evidence-gap
 list — 5 places describing responsibility instead of demonstrable impact,
 each with what real number would strengthen it and explicitly not guessed.
 
+**2026-08-08 — Vercel Web Analytics installed.** Sahil asked for site
+analytics; none existed anywhere (GSC and Bing both still processing,
+Vercel Analytics was never installed — confirmed via the dashboard showing
+the onboarding screen, not real zero-traffic data). Installed
+`@vercel/analytics`, wired into `layout.tsx`, deployed, and confirmed live:
+`script.js` and a `view` event both returned 200 on production. Future
+sessions can now pull real visitor/page-view data from the Vercel Analytics
+dashboard instead of reporting "no data available."
+
 ---
 
 *This file is read at the start of every weekly session — see
