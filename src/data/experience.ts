@@ -15,6 +15,19 @@ export type ExperienceEntry = {
 // accurate; only the voice is mine.
 export const experience: ExperienceEntry[] = [
   {
+    role: "Manager Trainee",
+    org: "Enterprise Mobility",
+    employment: "Permanent, Full-time",
+    start: "Aug 2026",
+    end: "Present",
+    location: "British Columbia, Canada",
+    workMode: "On-site",
+    summary:
+      "I'm building hands-on experience across retail operations, sales, and store management as a Manager Trainee at Enterprise Mobility.",
+    points: [],
+    skills: ["Retail", "Store Management", "Sales", "Customer Service", "Leadership", "Dayforce HCM Cloud", "Workday"],
+  },
+  {
     role: "Director",
     org: "ELE Foundation",
     employment: "Contract, Part-time",
@@ -35,16 +48,16 @@ export const experience: ExperienceEntry[] = [
     org: "Sula Indian Restaurant",
     employment: "Permanent, Full-time",
     start: "Mar 2024",
-    end: "Present",
+    end: "Aug 2026",
     location: "Vancouver, British Columbia, Canada",
     workMode: "On-site",
     summary:
-      "I plan and run large-scale catering operations for community events, including Car Free Day and Mount Pleasant Day.",
+      "I planned and ran large-scale catering operations for community events, including Car Free Day and Mount Pleasant Day.",
     points: [
-      "I've planned, organized, and run large catering events at community festivals like Car Free Day and Mount Pleasant Day — aiming for seamless operations and a genuinely good guest experience.",
-      "I coordinate across kitchen, service, and logistics to keep high-volume catering running on tight deadlines without dropping quality.",
-      "I manage vendor and stakeholder relationships, negotiate contracts, and work with event organizers to lock down good locations and visibility.",
-      "I've streamlined event setup, resource allocation, and post-event reporting — it's made things faster and cheaper to run.",
+      "I planned, organized, and ran large catering events at community festivals like Car Free Day and Mount Pleasant Day — aiming for seamless operations and a genuinely good guest experience.",
+      "I coordinated across kitchen, service, and logistics to keep high-volume catering running on tight deadlines without dropping quality.",
+      "I managed vendor and stakeholder relationships, negotiated contracts, and worked with event organizers to lock down good locations and visibility.",
+      "I streamlined event setup, resource allocation, and post-event reporting, making things faster and cheaper to run.",
     ],
     skills: ["Point of Sale (POS) Systems", "Customer Service", "Inventory Control", "Vendor Management"],
   },

@@ -21,7 +21,7 @@ export const profile = {
   // flag longer meta descriptions. Used for <meta description>, OG, and
   // Twitter cards; the fuller `tagline` above is for on-page copy.
   metaDescription:
-    "Sahil Poojary — Operations-focused Business & Management professional in Vancouver, BC. MBA graduate leading a non-profit and running event operations.",
+    "Sahil Poojary — Operations-focused Business & Management professional in Vancouver, BC. MBA graduate and non-profit director, now in retail operations.",
   location: "Vancouver, British Columbia, Canada",
   openTo: "I'm open to consulting and management opportunities",
 

@@ -117,7 +117,7 @@ export function buildKnowledge(): Record<DomainId, DomainKnowledge> {
     keywords: ["business", "management", "manage", "operations", "strategy", "industries", "businesses is he interested"],
     facts: [
       f("summary", "Sahil's focus sits at the crossroads of operations, marketing, and digital transformation."),
-      f("detail", "He's currently splitting his time between directing a non-profit (ELE Foundation) and running catering operations and community events for Sula Indian Restaurant."),
+      f("detail", "He's currently a Manager Trainee at Enterprise Mobility, building retail and operations experience, while also directing a non-profit (ELE Foundation)."),
       f("detail", "His MBA specialized in leadership, marketing management, and entrepreneurship.", "fact"),
       f("why", "His operations roles — from a medical products company to hospitality — give him a consistent lens on management: inventory discipline, vendor coordination, and being the bridge between frontline work and decision-makers.", "interpretation"),
     ],
