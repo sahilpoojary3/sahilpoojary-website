@@ -4,10 +4,26 @@ import ArtGallery from "@/components/ArtGallery";
 import { art } from "@/data/art";
 import { profile } from "@/config/profile";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
+const description = `A gallery of original paintings and sketches by ${profile.name} — acrylic studies, pencil work, and pen and ink pieces built over years of practice.`;
+
 export const metadata: Metadata = {
   title: "My Art",
-  description: `A gallery of original paintings, sketches and creative work by ${profile.name}.`,
+  description,
   alternates: { canonical: "/art" },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/art`,
+    title: `My Art — ${profile.name}`,
+    description,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${profile.name} — My Art` }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `My Art — ${profile.name}`,
+    description,
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function ArtPage() {

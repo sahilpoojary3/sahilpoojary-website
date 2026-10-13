@@ -16,12 +16,16 @@ export async function generateMetadata(props: PageProps<"/insights/[slug]">): Pr
   const article = insights.find((a) => a.slug === slug);
   if (!article) return {};
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
+  const canonicalUrl = `${siteUrl}/insights/${article.slug}`;
+
   return {
     title: article.title,
     description: article.dek,
     alternates: { canonical: `/insights/${article.slug}` },
     openGraph: {
       type: "article",
+      url: canonicalUrl,
       title: article.title,
       description: article.dek,
       publishedTime: article.publishedDate,

@@ -10,13 +10,29 @@ export function generateStaticParams() {
   return art.map((piece) => ({ slug: piece.slug }));
 }
 
+// Target a consistent total length (not just a fixed slice of the body) —
+// the medium prefix varies from piece to piece ("Acrylic on canvas. " vs.
+// "Mixed media on canvas. "), so a fixed-length body slice was producing
+// descriptions anywhere from 156 to 183 characters depending on the piece.
+const MAX_DESCRIPTION_LENGTH = 155;
+
+function buildDescription(piece: (typeof art)[number]): string {
+  const prefix = `${piece.medium}. `;
+  const budget = MAX_DESCRIPTION_LENGTH - prefix.length - 1; // -1 reserves room for an ellipsis
+  const body = piece.description.trim();
+  if (body.length <= budget) return `${prefix}${body}`;
+  return `${prefix}${body.slice(0, budget).trim()}…`;
+}
+
 export async function generateMetadata(props: PageProps<"/art/[slug]">): Promise<Metadata> {
   const { slug } = await props.params;
   const piece = art.find((p) => p.slug === slug);
   if (!piece) return {};
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
   const title = `${piece.title} — Art by ${profile.name}`;
-  const description = `${piece.medium}. ${piece.description.slice(0, 140).trim()}…`;
+  const description = buildDescription(piece);
+  const canonicalUrl = `${siteUrl}/art/${piece.slug}`;
 
   return {
     title: piece.title,
@@ -24,6 +40,7 @@ export async function generateMetadata(props: PageProps<"/art/[slug]">): Promise
     alternates: { canonical: `/art/${piece.slug}` },
     openGraph: {
       type: "article",
+      url: canonicalUrl,
       title,
       description,
       images: [{ url: piece.image, alt: `${piece.title} — ${piece.medium} by ${profile.name}` }],
@@ -48,9 +65,13 @@ export default async function ArtworkPage(props: PageProps<"/art/[slug]">) {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
 
+  // VisualArtwork (not the generic CreativeWork) — it's the schema.org type
+  // that actually defines `artMedium`. Using CreativeWork with artMedium
+  // validated with a "property not recognized for this type" warning on
+  // every single art piece.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
+    "@type": "VisualArtwork",
     name: piece.title,
     description: piece.description,
     creator: { "@id": `${siteUrl}/#person` },

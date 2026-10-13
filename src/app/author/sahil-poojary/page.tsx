@@ -7,10 +7,27 @@ import { insights } from "@/data/insights";
 import { education } from "@/data/education";
 import LinkedinIcon from "@/components/ui/LinkedinIcon";
 
+const authorSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
+const authorDescription =
+  "Sahil Poojary — MBA graduate from University Canada West, Vancouver, BC. Background in operations, management, and business strategy, now in retail ops.";
+
 export const metadata: Metadata = {
   title: "Author",
-  description: `About ${profile.name}: business background, education, and areas of interest.`,
+  description: authorDescription,
   alternates: { canonical: "/author/sahil-poojary" },
+  openGraph: {
+    type: "profile",
+    url: `${authorSiteUrl}/author/sahil-poojary`,
+    title: `${profile.name} — Author`,
+    description: authorDescription,
+    images: [{ url: `${authorSiteUrl}/images/sahil-poojary-profile.jpg`, alt: profile.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${profile.name} — Author`,
+    description: authorDescription,
+    images: [`${authorSiteUrl}/images/sahil-poojary-profile.jpg`],
+  },
 };
 
 export default function AuthorPage() {

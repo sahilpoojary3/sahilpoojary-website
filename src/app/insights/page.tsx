@@ -7,10 +7,26 @@ import { insights } from "@/data/insights";
 import { profile } from "@/config/profile";
 import { formatIsoDate } from "@/lib/date";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahilpoojary-website.vercel.app";
+const description = `Original, grounded writing by ${profile.name} on business, operations and leadership — drawn from real experience, not theory.`;
+
 export const metadata: Metadata = {
   title: "Insights",
-  description: `Original, grounded writing by ${profile.name} on business, operations and leadership — drawn from real experience, not theory.`,
+  description,
   alternates: { canonical: "/insights" },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/insights`,
+    title: `Insights — ${profile.name}`,
+    description,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${profile.name} — Insights` }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Insights — ${profile.name}`,
+    description,
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function InsightsPage() {
